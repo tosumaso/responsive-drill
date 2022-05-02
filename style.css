@@ -100,7 +100,7 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 90vh;
+  height: min(90vh,900px);
   position: relative;
 }
 
@@ -142,8 +142,7 @@ header {
 
 .paspol-image>img {
   max-width: 200px;
-  height: auto;
-  margin: 0 auto;
+  
 }
 
 /*--- product, news ---*/
@@ -161,6 +160,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3rem;
 }
 
 .product-list {
@@ -320,7 +320,8 @@ footer {
 .menu {
   margin-left: 3rem;
 }
-.menu-btn{
+
+.menu-btn {
   margin-right: 3rem;
 }
 
@@ -332,6 +333,7 @@ footer {
   z-index: 90;
 
 }
+
 #menu-btn-check {
   display: none;
 }
@@ -347,7 +349,7 @@ footer {
 }
 
 .menu-content ul {
-  padding: 70px 10px 0;
+  padding: 3rem 0;
 }
 
 .menu-content ul li {
@@ -362,7 +364,7 @@ footer {
   box-sizing: border-box;
   color: #ffffff;
   text-decoration: none;
-  padding: 9px 15px 10px 0;
+  padding: 9px 8%;
   position: relative;
 }
 
@@ -430,16 +432,23 @@ footer {
 /*----- media query -----*/
 
 @media screen and (max-width: 900px) {
+
   /*headerクラスの配下のsite-logoクラス、imgタグ以外を非表示にする*/
   .header *:not(.site-logo, img) {
     display: none;
   }
+
   .container.header-container {
     position: static;
     /*上のcssでproduct-blockとnews-block以外のcontainerからrelativeを消す*/
     margin: 0;
     width: 100%;
   }
+
+  .paspol-image > img {
+    margin: 0 auto;
+  }
+
   /*widthが900px以下でハンバーガーメニューを表示する。*/
   .hamburger-menu {
     display: flex;
@@ -476,21 +485,50 @@ footer {
 
 }
 
-@media only screen and (max-width: 700px){
-  .container.outline-container{
-    width: min(90%, 70rem);   
+@media only screen and (max-width: 700px) {
+  .container.outline-container {
+    width: min(90%, 70rem);
   }
-  .outline-container > h1{
+
+  .outline-container>h1 {
     text-align: left;
   }
-  .paspol-image > img{
+
+  .paspol-image>img {
     margin: 0;
   }
 }
 
 @media only screen and (max-width: 500px) {
+  .outline-container>p {
+    font-size: 15px;
+    line-height: 1.5rem;
+  }
+
   .container {
     position: relative;
+  }
+
+  .paspol-image > img {
+    max-width: 150px;
+  }
+
+  .product-title-wrapper, .news-title-wrapper {
+    display: block;
+  }
+
+  .section-title {
+    text-align: center;
+    background-position: 50% bottom;
+    letter-spacing: 0.2rem;
+  }
+
+  .more {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 
   .product-row {
@@ -507,48 +545,55 @@ footer {
     max-width: 100%;
   }
 
-  .more {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+  .product-detail{
+    font-size: 1.2rem;
   }
 
+  .news-block{
+    padding-bottom: 4rem;
+  }
   .news {
     display: block;
   }
-
   .news-item,
   .news-explanation {
+    font-size: 1.2rem;
     max-width: 100%;
     margin: 0 auto;
   }
+  .news-content{
+    display: none;
+  }
 
-  .first-footer{
+  .first-footer {
     display: block;
   }
-  .first-footer > p{
+
+  .first-footer>p {
     margin: 0 auto;
     padding-bottom: 0.5rem;
   }
 
-  .second-footer{
+  .second-footer {
     padding: 0;
   }
-  .nav-bar.bottom-nav-bar{
+
+  .nav-bar.bottom-nav-bar {
     display: block;
   }
-  .nav-bar.bottom-nav-bar > li {
+
+  .nav-bar.bottom-nav-bar>li {
     text-align: center;
     padding: 1rem 0;
     border-top: 1px solid #ffffff;
   }
 
-  .third-footer{
+  .third-footer {
     display: block;
+    padding: 2rem 10%;
   }
-  .small-site-logo{
+
+  .small-site-logo {
     margin-bottom: 2rem;
   }
 }
